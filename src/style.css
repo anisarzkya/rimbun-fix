@@ -1,0 +1,247 @@
+:root {
+  --bg: #fffbf4;
+  --bg-alt: #f6efe0;
+  --bg-soft: #fff5e8;
+  --surface: #ffffff;
+  --primary: #5ba440;
+  --primary-dark: #3d7a2a;
+  --primary-soft: #e4f2d9;
+  --secondary: #e87a90;
+  --secondary-dark: #c75a72;
+  --secondary-soft: #fce2e8;
+  --accent: #f5c24d;
+  --accent-soft: #fdefcf;
+  --text: #243025;
+  --text-muted: #6b7d6c;
+  --border: #ece0cb;
+  --shadow-sm: 0 2px 8px rgba(74, 110, 48, 0.06);
+  --shadow: 0 6px 24px rgba(74, 110, 48, 0.1);
+  --shadow-lg: 0 18px 50px rgba(74, 110, 48, 0.18);
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --transition: 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Fraunces", serif;
+  letter-spacing: -0.02em;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.material-icons,
+.material-icons-outlined {
+  vertical-align: middle;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+main {
+  flex: 1;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 6px 16px rgba(91, 164, 64, 0.3);
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  color: var(--primary-dark);
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: white;
+}
+.btn-ghost {
+  background: var(--bg-alt);
+  color: var(--text);
+}
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+.btn-block {
+  width: 100%;
+}
+
+/* Forms */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.form-group {
+  margin-bottom: 18px;
+}
+.form-group.full {
+  grid-column: 1 / -1;
+}
+.form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.form-label .req {
+  color: var(--secondary);
+}
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 15px;
+  background: var(--bg);
+  transition: var(--transition);
+}
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 4px var(--primary-soft);
+}
+.form-input.error {
+  border-color: var(--secondary);
+  background: var(--secondary-soft);
+}
+.form-error {
+  color: var(--secondary-dark);
+  font-size: 13px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Utilities */
+.empty-state {
+  padding: 80px 24px;
+  text-align: center;
+}
+.empty-state .icon {
+  font-size: 80px;
+  color: var(--primary-soft);
+  margin-bottom: 18px;
+}
+.empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.empty-state p {
+  color: var(--text-muted);
+  margin-bottom: 22px;
+}
+
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.route-enter-active,
+.route-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.route-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.route-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
